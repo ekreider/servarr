@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+    volumes:
+      - ./config:/config
+      - /mnt/media/movies:/movies #optional
+      - ../Qbittorrent/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped

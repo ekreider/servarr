@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    volumes:
+      - /mnt/media:/media
+      - ./config:/config
+    ports:
+      - 8096:8096
+    restart: unless-stopped
